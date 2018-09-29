@@ -6,8 +6,8 @@
                 'connection'=>'pgsql',
                 'host'=>$url['host'],
                 'database'=>substr($url["path"],1),
-                'username'=>$url['name'],
-                'password'=>$url['pass'],
+                'username'=>$url["user"],
+                'password'=>$url["pass"],
             ];
         }else{
             return $db_config=[
