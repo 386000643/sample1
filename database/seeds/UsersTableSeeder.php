@@ -19,6 +19,7 @@ class UsersTableSeeder extends Seeder
         //对第一个用户进行更新
         $user=User::find(1);
         $user->is_admin=true;
+        $user->activated=true;
         $user->name='Aufree';
         $user->email='aufree@yousails.com';
         $user->password=bcrypt('password');
