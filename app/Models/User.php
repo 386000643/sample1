@@ -55,4 +55,15 @@ class User extends Authenticatable
     public function sendPasswordResetNotification($token){
         $this->notify(new ResetPassword($token));
     }
+
+    //将 Eloquent 关联定义为函数,一个用户多条微博
+    public function statuses(){
+        return $this->hasMany(Status::class);
+    }
+
+    //获取当前用户发布的所有微博
+    public function feed(){
+        return $this->statuses()
+                    ->orderBy('created_at','desc');
+    }
 }
